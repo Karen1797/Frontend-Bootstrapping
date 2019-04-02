@@ -21,20 +21,22 @@ dataUsers.then(data => {
         const nameSpan = document.createElement('span');
         const link = document.createElement('a');
         const image = img.src = user.picture.large;
+        const contLink = document.createElement('div');
          
-        nameSpan.innerHTML=user.name.first
+        nameSpan.innerHTML = user.name.first
+        link.setAttribute('href','./usuarios.html');
 
+        contLink.append(link);
         link.append(img);
         link.append(nameSpan);
-        containerImages.append(link);
+        containerImages.append(contLink);
 
-        link.classList.add('usersFirst', 'col-sm-2');
-
+        contLink.classList.add('linkContainer')
+        link.classList.add('usersFirst', 'col-xs-2', );
         img.classList.add( 'imgUsers');
         nameSpan.classList.add( 'nameUsers',);
-        
+
     })
-    
 })
 
     
