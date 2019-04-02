@@ -1,5 +1,5 @@
 
-let info = fetch('https://randomuser.me/api/')
+let info = fetch('https://randomuser.me/api/?results=100')
 
 let dataUsers = info
 .then((val) => {
@@ -13,17 +13,22 @@ dataUsers.then(data => {
     console.log(data);
     const users = data.results;
     const containerImages = document.getElementById('containerUsers');
+    console.log('holi' + users.length)
 
+    
     users.forEach((user) => {
         const img = document.createElement('img');
+        const name = document.createElement('p');
         const link = document.createElement('a');
         const image = img.src = user.picture.large;
 
         link.append(img);
+        link.append('name');
         containerImages.append(link);
 
         
     })
+    
 })
 
     
