@@ -1,20 +1,34 @@
 
-fetch('https://randomuser.me/api/').then((val) => {
+let info = fetch('https://randomuser.me/api/')
+
+let dataUsers = info
+.then((val) => {
     return val.json();
-}).then((val) => {
-    const users = val.results;
+})
+.catch(err => {
+    console.log('Error', err)
+})
+
+dataUsers.then(data => {
+    console.log(data);
+    const users = data.results;
     const containerImages = document.getElementById('containerUsers');
 
     users.forEach((user) => {
         const img = document.createElement('img');
-        const link = document.createElement('a')
+        const link = document.createElement('a');
         const image = img.src = user.picture.large;
 
-        img.append(link);
-        link.append(containerImages);
+        link.append(img);
+        containerImages.append(link);
+
+        
     })
+})
+
     
-    console.log(val)
+    
+    
     //console.log(JSON.stringify(val));
 /*
     function crearUsuarios(value) {
@@ -26,14 +40,6 @@ fetch('https://randomuser.me/api/').then((val) => {
     crearUsuarios(value);
     }
 */
-}).catch(err => {
-    console.log('ups', err)
-  })
+
 
    
-createUser = (user) =>{
-  
-    let userImage = document.createElement('img')
-}
-
-
