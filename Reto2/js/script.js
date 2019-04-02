@@ -18,14 +18,20 @@ dataUsers.then(data => {
     
     users.forEach((user) => {
         const img = document.createElement('img');
-        const name = document.createElement('p');
+        const nameSpan = document.createElement('span');
         const link = document.createElement('a');
         const image = img.src = user.picture.large;
+         
+        nameSpan.innerHTML=user.name.first
 
         link.append(img);
-        link.append('name');
+        link.append(nameSpan);
         containerImages.append(link);
 
+        link.classList.add('usersFirst', 'col-sm-2');
+
+        img.classList.add( 'imgUsers');
+        nameSpan.classList.add( 'nameUsers',);
         
     })
     
