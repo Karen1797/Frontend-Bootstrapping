@@ -10,15 +10,14 @@
     border: 1px solid black;
     border-radius: 2%;
 }
-.imgUsers {
-    border-radius: 2%;
-}
 
 .nameUsers{
     text-transform: capitalize;
     margin: 1%; 
 }
-
+.images{
+    border-radius: 30%;
+}
 .usersFirst:hover {
     background: rgba(235,233,249,1);
     background: -moz-linear-gradient(left, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 28%, rgba(206,199,236,1) 51%, rgba(193,191,234,1) 100%);
@@ -29,16 +28,25 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebe9f9', endColorstr='#c1bfea', GradientType=1 );
 }
 .linkContainer {
-    margin:0 auto;
+    margin: 0 auto;
 }
+
+
 .profile {
-    display: flex;
+    
     align-items: center;
-    justify-content: center;
+    
 }
-.contText {
-    margin: 2vh;
-}
+/*
 .imgProfile {
     max-width: 50%;
+}
+*/
+.contText {
+    margin: 2vh;
+    text-align: justify;
+}
+.titleProfile{
+    text-transform: capitalize;
+    font-size: 1em;
 }

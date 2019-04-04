@@ -58,7 +58,7 @@ function create(user) {
     
     contLink.classList.add('linkContainer');
     link.classList.add('usersFirst', 'col-xs-2');
-    img.classList.add( 'imgUsers');
+    img.classList.add( 'images');
     nameSpan.classList.add( 'nameUsers');
 
     return link;
@@ -78,7 +78,7 @@ function createProfile(user) {
     usersContainer.remove();
 
     imgProfile.src = image;
-    titleProfile.innerHTML = `${name} ${lastName}, ${nationality}, ${email} `
+    titleProfile.innerHTML = `${name} ${lastName},\n\r ${nationality}, ${email} `
     descriptionProfile.innerHTML = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`;
     
     contTextProfile.append(titleProfile);
@@ -86,9 +86,11 @@ function createProfile(user) {
     contTextProfile.append(descriptionProfile);
     article.append(contTextProfile);
 
-    article.classList.add('profile');
-    contTextProfile.classList.add('contText')
-    imgProfile.classList.add('imgProfile');
+    article.classList.add('profile', 'row');
+    contTextProfile.classList.add('contText', 'col-xs-12', 'col-sm-7')
+    imgProfile.classList.add('imgProfile', 'images', 'col-xs-12', 'col-sm-4');
+    titleProfile.classList.add('titleProfile')
+
     return article;
 
 }
