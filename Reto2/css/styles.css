@@ -31,3 +31,14 @@
 .linkContainer {
     margin:0 auto;
 }
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contText {
+    margin: 2vh;
+}
+.imgProfile {
+    max-width: 50%;
+}
