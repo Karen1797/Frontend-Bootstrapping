@@ -57,6 +57,10 @@
     font-size: 1.1em;
     text-align: left;
 }
+.imgProfile {
+    margin: 1vh auto;
+    max-width: 80%;
+}
 .welcome {
     
     margin-bottom: 5%;
@@ -80,4 +84,9 @@
 }
 footer {
     color:#007bff;
+    margin: 5vh 0;
+}
+
+.descrProfile {
+    font-size: 1em;
 }

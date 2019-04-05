@@ -1,5 +1,5 @@
 
-let info = fetch('https://randomuser.me/api/?results=100')
+let info = fetch('https://randomuser.me/api/?results=48')
 
 let dataUsers = info
 .then((val) => {
@@ -72,8 +72,7 @@ function createProfile(user) {
     let article = document.createElement('article');
     let contTextProfile = document .createElement('div');
     console.log(name);
-    //event.target.style.visibility = 'hidden';
-    //let link = document.getElementById(email)
+    
     console.log(email);
     usersContainer.remove();
 
@@ -90,7 +89,8 @@ function createProfile(user) {
     article.classList.add('profile', 'row');
     contTextProfile.classList.add('contText', 'col-12', 'col-sm-7')
     imgProfile.classList.add('imgProfile', 'img-responsive', 'images', 'col-12', 'col-sm-4');
-    titleProfile.classList.add('titleProfile')
+    titleProfile.classList.add('titleProfile');
+    descriptionProfile.classList.add('descrProfile');
 
     return article;
 
