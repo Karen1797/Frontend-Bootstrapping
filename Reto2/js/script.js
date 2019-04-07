@@ -1,12 +1,11 @@
-
-let info = fetch('https://randomuser.me/api/?results=48')
+let info = fetch('https://randomuser.me/api/?results=100')
 
 let dataUsers = info
 .then((val) => {
     return val.json();
 })
 .catch(err => {
-    console.log('Error', err)
+    console.log('Error', err);
 })
 
 dataUsers.then(data => {
@@ -15,7 +14,6 @@ dataUsers.then(data => {
     let usersContainer = document.getElementById('usersContainer');
     let profileContainer = document.getElementById('userProfile');
     console.log('holi' + users.length)
-    
     
     users.forEach((user) => {
         const name = `${user.name.first}`
@@ -49,7 +47,6 @@ function create(user) {
     nameSpan.innerHTML = name;
     img.src = image
 
-    //link.setAttribute('href','./usuarios.html');
     link.setAttribute('id',user.email);
     
     contLink.append(link);
@@ -77,7 +74,7 @@ function createProfile(user) {
     usersContainer.remove();
 
     imgProfile.src = image;
-    titleProfile.innerHTML = `Nombre: ${name} ${lastName} \r\nCiudad, estado: ${nationality}`+'\r'+`
+    titleProfile.innerHTML = `Nombre: ${name} ${lastName} Ciudad, estado: ${nationality}`+'\r'+`
      Correo: ${email} `
     descriptionProfile.innerHTML = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`;
     
