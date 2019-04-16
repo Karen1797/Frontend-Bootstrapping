@@ -9,7 +9,6 @@ const dataUsers = info
 })
 
 dataUsers.then(data => {
-    console.log(data);
     const users = data.results;
     const usersContainer = document.getElementById('usersContainer');
     const profileContainer = document.getElementById('userProfile');
