@@ -1,6 +1,6 @@
-let info = fetch('https://randomuser.me/api/?results=100')
+const info = fetch('https://randomuser.me/api/?results=480');
 
-let dataUsers = info
+const dataUsers = info
 .then((val) => {
     return val.json();
 })
@@ -10,42 +10,37 @@ let dataUsers = info
 
 dataUsers.then(data => {
     console.log(data);
-    let users = data.results;
-    let usersContainer = document.getElementById('usersContainer');
-    let profileContainer = document.getElementById('userProfile');
-    console.log('holi' + users.length)
+    const users = data.results;
+    const usersContainer = document.getElementById('usersContainer');
+    const profileContainer = document.getElementById('userProfile');
     
     users.forEach((user) => {
-        const name = `${user.name.first}`
-        const lastName = `${user.name.last}`
-        const image = user.picture.large
-        const email = user.email
-        const nationality = `${user.location.city}, ${user.location.state}`
-        const userData = { name, lastName, image, email, nationality }
+        const name = `${user.name.first}`;
+        const lastName = `${user.name.last}`;
+        const image = user.picture.large;
+        const email = user.email;
+        const nationality = `${user.location.city}, ${user.location.state}`;
+        const userData = { name, lastName, image, email, nationality };
 
         const linkUsuarios = create(userData);
         usersContainer.append(linkUsuarios);
         
-        console.log(linkUsuarios)
-
         linkUsuarios.addEventListener('click', () => {
-            
             const profile = createProfile(userData);
             profileContainer.append(profile);
-                
-        })
-    })
-})
+        });
+    });
+});
 
 function create(user) {
-    const { name, lastName, image, email, nationality } = user;
-    let img = document.createElement('img');
-    let nameSpan = document.createElement('span');
-    let link = document.createElement('a');
-    let contLink = document.createElement('div');
+    const { name, lastName, image, email, nationality} = user;
+    const img = document.createElement('img');
+    const nameSpan = document.createElement('span');
+    const link = document.createElement('a');
+    const contLink = document.createElement('article');
      
     nameSpan.innerHTML = name;
-    img.src = image
+    img.src = image;
 
     link.setAttribute('id',user.email);
     
@@ -63,20 +58,22 @@ function create(user) {
 
 function createProfile(user) {
     const { name, lastName, image, email, nationality } = user;
-    let imgProfile = document.createElement('img');
-    let titleProfile = document.createElement('h3');
-    let descriptionProfile = document.createElement('p');
-    let article = document.createElement('article');
-    let contTextProfile = document .createElement('div');
-    console.log(name);
-    
-    console.log(email);
+    const imgProfile = document.createElement('img');
+    const titleProfile = document.createElement('h3');
+    const descriptionProfile = document.createElement('p');
+    const article = document.createElement('article');
+    const contTextProfile = document.createElement('div');
+    const newLine = document.createElement('br');
+
     usersContainer.remove();
 
     imgProfile.src = image;
-    titleProfile.innerHTML = `Nombre: ${name} ${lastName} Ciudad, estado: ${nationality}`+'\r'+`
-     Correo: ${email} `
-    descriptionProfile.innerHTML = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`;
+    titleProfile.innerHTML = `Nombre: ${name} ${lastName} - Ciudad, estado: ${nationality} - Correo: ${email} `;
+    descriptionProfile.innerHTML = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`;
     
     contTextProfile.append(titleProfile);
     article.append(imgProfile);
@@ -84,7 +81,7 @@ function createProfile(user) {
     article.append(contTextProfile);
 
     article.classList.add('profile', 'row');
-    contTextProfile.classList.add('contText', 'col-12', 'col-sm-7')
+    contTextProfile.classList.add('contText', 'col-12', 'col-sm-7');
     imgProfile.classList.add('imgProfile', 'img-responsive', 'images', 'col-12', 'col-sm-4');
     titleProfile.classList.add('titleProfile');
     descriptionProfile.classList.add('descrProfile');
