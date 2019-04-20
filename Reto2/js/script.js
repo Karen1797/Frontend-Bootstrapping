@@ -1,4 +1,4 @@
-const info = fetch('https://randomuser.me/api/?results=480');
+const info = fetch('https://randomuser.me/api/?results=147');
 
 const dataUsers = info
 .then((val) => {
