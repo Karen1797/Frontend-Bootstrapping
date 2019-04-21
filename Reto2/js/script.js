@@ -24,6 +24,7 @@ dataUsers.then(data => {
         const linkUsuarios = create(userData);
         usersContainer.append(linkUsuarios);
         
+
         linkUsuarios.addEventListener('click', () => {
             const profile = createProfile(userData);
             profileContainer.append(profile);
@@ -64,7 +65,8 @@ function createProfile(user) {
     const contTextProfile = document.createElement('div');
     const newLine = document.createElement('br');
 
-    usersContainer.remove();
+    //usersContainer.remove();
+    usersContainer.classList.add('hideUsersContainer');
 
     imgProfile.src = image;
     titleProfile.innerHTML = `Nombre: ${name} ${lastName} - Ciudad, estado: ${nationality} - Correo: ${email} `;

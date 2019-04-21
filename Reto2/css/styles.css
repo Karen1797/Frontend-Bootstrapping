@@ -90,3 +90,7 @@ footer {
 .descrProfile {
     font-size: 1em;
 }
+
+.hideUsersContainer{
+    display: none;
+}
