@@ -9,12 +9,10 @@ const dataCharacters = info
 })
 
 dataCharacters.then(data => {
-    
     const characters = data.results;
     const charactersContainer = document.getElementById('charactersContainer');
     const profileContainer = document.getElementById('characterProfile');
-    const homeProfile = document.getElementById('homeProfile');
-
+    
     characters.forEach((character) => {
         const name = `${character.name}`;
         const image = character.image;
@@ -24,9 +22,6 @@ dataCharacters.then(data => {
 
         const linkUsuarios = create(characterData);
         charactersContainer.append(linkUsuarios);
-        
-        const home = createHome(characterData);
-        homeProfile.append(home);
 
         linkUsuarios.addEventListener('click', () => {
             const profile = createProfile(characterData);
@@ -34,21 +29,6 @@ dataCharacters.then(data => {
         });
     });
 });
-
-function createHome(character) {
-    const { name, specie, image, nationality } = character;
-    const contImages = document.createElement('article');
-    const img = document.createElement('img');
-
-    img.src = image;
-
-    contImages.append(img);
-
-    img.classList.add('col-3');
-
-    return contImages;
-}
-
 
 function create(character) {
     const { name, specie, image, nationality} = character;
@@ -81,7 +61,6 @@ function createProfile(character) {
     const descriptionProfile = document.createElement('p');
     const article = document.createElement('article');
     const contTextProfile = document.createElement('div');
-    const newLine = document.createElement('br');
 
     const mainTitle = document.getElementById('mainTitle');
     charactersContainer.classList.add('hidecharactersContainer');
@@ -102,11 +81,10 @@ function createProfile(character) {
 
     article.classList.add('profile', 'row');
     contTextProfile.classList.add('contText', 'col-12', 'col-sm-7');
-    imgProfile.classList.add('imgProfile', 'img-responsive', 'images', 'col-12', 'col-sm-4');
+    imgProfile.classList.add('imgProfile', 'img-responsive', 'col-12', 'col-sm-4');
     titleProfile.classList.add('titleProfile');
     descriptionProfile.classList.add('descrProfile');
 
     return article;
 
 }
-
